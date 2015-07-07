@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Soutenance PFE</title>
+  <meta charset="UTF-8">
+  <script src="lib/js/jquery-1.11.2.min.js"></script>
+  <script src="lib/js/jcanvas.min.js"></script>
+  <script src="lib/js/queue.min.js"></script>
+  <script src="lib/js/chart.min.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+  <script src="lib/js/transition.min.js"></script>
+  <script src="lib/js/prism.js"></script>
+  <script src="lib/js/impressConsole.js"></script>
+  <script src="js/chartDataIMGrowth.js"></script>
+  <script src="js/chartCompetitor.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/steps.js"></script>
+  <script src="http://localhost:80/socket.io/socket.io.js"></script>
+  <script src="http://localhost:80/remote.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="lib/css/transition.css" />
+  <link rel="stylesheet" type="text/css" href="lib/css/prism.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/steps.css" />
+</head>
+<body>
+<div id="impress">
+
+<div id="step-title" class="step white" data-x="-1000" data-y="0" data-z="1000">
+  <div class="notes">Bonjour, je vais vous presenter le stage que j'ai realisé de Fevrier à Juillet chez Orange à Pessac.</div>
+  <h1 class="title">Développement d'un add-on pour Libon sous iOS</h1>
+  <p class="author">
+    Foucault Jérémie<br>
+    Maître de Stage: Fabien Crapiz<br>
+    Tuteur: Mathieu Faverge
+  </p>
+  <p class="logo clearfix">
+    <img src="img/logo_rgb.jpg"/>
+    <img src="img/enseirb_logo.png"/>
+  </p>
+  <p class="institution">
+    Soutenance de PFE<br>
+    Filière informatique
+  </p> 
+</div>
+
+<div id="step-summary" class="step white" data-x="-1000" data-y="0" data-z="1000">
+  <div class="notes">Dans un premier temps je vais vous presenter briefement l'entreprise, puis je vous parlerais de ma mission et son contexte, avant de vous faire une demonstration de ce qui à été realisé. Par la suite je renviendrais sur deux problematiques rencontrés durant ce stage, et je terminerais par une conclusion.</div>
+  <ul>
+    <li>Présentation de l'entreprise</li>
+    <li>Présentation de la mission</li>
+    <li>Démonstration</li>
+    <li>Retours sur deux problématiques</li>
+    <li>Conclusion</li>
+  </ul>
+</div>
+
+<div id="step-orange-france" class="step white" data-slide-number="1"
+  data-x="-21" data-y="-560" data-z="-1000" data-scale="0.279">
+  <div class="notes">Orange est connu en France comme premier operateur mobile et fixe, et compte presque 27 million de clients mobile</div>
+  <h1 class="map-title">Orange en France:</h1>
+  <ul>
+    <li>Réseau mobile N°1 en France</li>
+    <li>26,7 millions de clients mobile</li>
+    <li>9,9 millions de clients haut-debit fixe</li>
+  </ul>
+  <div class="orange-france-bg"><img src="img/france.png"></div>
+</div>
+
+
+<div id="step-orange-europe" class="step white" data-slide-number="2"
+  data-x="-71" data-y="-420" data-z="-1000" data-scale="0.61">
+  <div class="notes">Mais orange est egalement present en Europe et Afrique, et possède 185 millions de clients mobile.</div>
+  <h1 class="map-title">Orange en Europe et Afrique:</h1>
+  <ul>
+    <li>Dans 29 pays à travers le monde</li>
+    <li>185 millions de clients mobile</li>
+    <li>58 millions de clients internet et ligne fixe</li>
+  </ul>
+  <div class="orange-europe-bg"><img src="img/europe.png"></div>
+</div>
+
+<div id="step-orange-world" class="step white" data-slide-number="3"
+  data-x="0" data-y="-500" data-z="-1000">
+  <div class="notes">Enfin Orange est present quasiment partout dans le monde via ses services à destination des entreprises.<br> Afin d'introduire mon stage et ma mission, nous allons partir d'un constat simple;</div>
+  <h1 class="map-title">Orange dans le monde:</h1>
+  <ul>
+    <li>Dans 220 pays</li>
+    <li>Via Orange Business Services</li>
+  </ul>
+  <div class="orange-world-bg"><img src="img/world.png"></div>
+</div>
+
+
+<div id="step-chart-imGrowth" class="step white" data-slide-number="4"
+  data-x="0" data-y="0" data-z="0">
+  <div class="notes">Les communications instantannées via les OTT ont explosés au point qu'aujourd'hui plus de message sont envoyés chaque jours via Whatsapp dans le monde que l'ensemble des SMS (30milliard vs 20milliard)</div>
+  <p class="center-text">Explosion des communications instantanés</p>
+  <canvas class="center-block" width="600px" height="400px"></canvas>
+  <div class="legend"></div>
+</div>
+
+<div id="step-multiple-actors" class="step white" data-slide-number="5"
+  data-x="800" data-y="0" data-z="0">
+  <div class="notes">Et whatsapp n'est pas le seul acteur dans ce domaine, il existe un grand nombre d'applications proposant dans l'ensemble les meme services, de la voIP et de la messagerie instantanée.</div>
+  <p class="center-text">Avec un grand nombre d'acteurs</p>
+  <div class="container-fluid">
+    <div class="row app-icon">
+      <div class="col-xs-3"><img class="center-block" src="img/Whatsapp.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/QQ.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/Wechat.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/Messenger.png"/></div>
+    </div>
+    <div class="row app-icon">
+      <div class="col-xs-3"><img class="center-block" src="img/imessages.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/Skype.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/Line.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/Viber.png"/></div>
+    </div>
+    <div class="row app-icon">
+      <div class="col-xs-3"><img class="center-block" src="img/Libon.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/Hangout.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/kakaoTalk.png"/></div>
+      <div class="col-xs-3"><img class="center-block" src="img/WorldYou.png"/></div>
+    </div>
+  </div>
+</div>
+
+<div id="step-chart-multiple-actors" class="step white" data-slide-number="6"
+  data-x="1600" data-y="0" data-z="0">
+  <div class="notes">Et le marché est très concurentiel avec quelques gros acteurs qui se disputent les utilisateurs. Notez tout de meme que Facebook et Whatsapp se partagent presque un tier des utilisateurs mensuels et que whatsapp appartient à facebook.</div>
+  <p class="center-text">et un marché concurentiel</p>
+  <canvas class="center-block" width="600px" height="400px"></canvas>
+  <div class="legend"></div>
+  <p class="center-text total">3,5Mrd</p>
+</div>
+
+<div id="step-libon" class="step green" data-slide-number="7"
+  data-x="1600" data-y="0" data-z="1000">
+  <div class="notes">C'est dans ce contexte difficile qu' Orange à introduit Libon</div>
+  <img class="center-block" src="img/libon_logo.png"/>
+</div>
+
+<div id="step-libon-numbers" class="step green" data-slide-number="8"
+  data-x="1600" data-y="700" data-z="1000">
+  <div class="notes">Libon est créée en 2012 par Orange vallée<br> En plus des fonctionnalités de base (messagerie et appels voIP) l'application compte se demarquer grace à quelque fonctions inedites tel qu'un messagerie visuelle et automatisée. En moyenne 3Millions d'utilisateur utilise l'application chaque mois.</div>
+  <div class="row">
+    <div class="col-xs-6">
+      <ul>
+        <li class="prezItem hidden">Créée en 2012</li>
+        <li class="prezItem hidden">Appels en VoIP (Libon Out)</li>
+        <li class="prezItem hidden">Méssagerie instantanée</li>
+        <li class="prezItem hidden">3M d'utilisateurs en moyenne<br> par mois</li>
+      </ul>
+    </div>
+    <div id="libon-carousel-container" class=" col-xs-6">
+    <!-- Carousel inject via JS -->
+      <div class="deep-shadow iphoneFrame">
+        <img class="center-block" src="img/screenLibonCallOut.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="step-libon-objectives" class="step white" data-slide-number="9"
+  data-x="1600" data-y="700" data-z="0">
+  <div class="notes">Afin de se demarquer de la concurence un des vecteurs de travail etait l'amelioration de l'experience utilisateur pour la messagerie instantanné.</div>
+  <p class="center-text">Améliorer l'expérience utilisateur</p>
+</div>
+
+
+
+<div id="step-dehumanized-conversation" class="step white" data-slide-number="10"
+  data-x="2400" data-y="700" data-z="0">
+  <div class="notes">En effet les communication en ligne sont relativement deshumanisées et pas forcement naturelles, ainsi sans le contexte, il est facile de mal interpreter le sens de certains mots et donc ne pas se comprendre. De plus sans metrise du language propre à ces comunications communiquer peut etre compliqué, c'est le cas de l'acronyme LOL.</div>
+  <div class="row"><p class="center-text">Les communications en ligne sont deshumanisées</p></div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="chat-bg">
+        <ul class="ChatLog">
+          <li class="ChatLog__entry">
+            <img class="ChatLog__avatar" src="img/user_icon.png" />
+            <p class="ChatLog__message">
+              Honey, Your grandma has just died LOL
+              <time class="ChatLog__timestamp">6 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry ChatLog__entry_mine">
+            <p class="ChatLog__message">
+              Mom, Do you know what LOL means ? 
+              <time class="ChatLog__timestamp">4 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry">
+            <img class="ChatLog__avatar" src="img/user_icon.png" />
+            <p class="ChatLog__message">
+              Yes I do, It means 'Lots of Love'
+              <time class="ChatLog__timestamp">3 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry ChatLog__entry_mine">
+            <p class="ChatLog__message">
+              . . . That is not what LOL means
+              <time class="ChatLog__timestamp">2 minutes ago</time>
+            </p>
+          </li>
+           <li class="ChatLog__entry">
+            <img class="ChatLog__avatar" src="img/user_icon.png" />
+            <p class="ChatLog__message">
+              Yes it is!!!
+              <time class="ChatLog__timestamp">3 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry ChatLog__entry_mine">
+            <p class="ChatLog__message">
+            Google it mom, google it
+              <time class="ChatLog__timestamp">2 minutes ago</time>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="chat-bg">
+        <ul class="ChatLog">
+          <li class="ChatLog__entry ChatLog__entry_mine">
+            <p class="ChatLog__message">
+              Hey dad can i have money for some coke?
+              <time class="ChatLog__timestamp">4 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry">
+            <img class="ChatLog__avatar" src="img/user_icon.png" />
+            <p class="ChatLog__message">
+              Uh sure...... is 60$ enough??
+              <time class="ChatLog__timestamp">6 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry ChatLog__entry_mine">
+            <p class="ChatLog__message">
+              Dad it is only $1.35
+              <time class="ChatLog__timestamp">4 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry">
+            <img class="ChatLog__avatar" src="img/user_icon.png" />
+            <p class="ChatLog__message">
+              Wow the price sure went down from when i was your age...
+              <time class="ChatLog__timestamp">3 minutes ago</time>
+            </p>
+          </li>
+          <li class="ChatLog__entry ChatLog__entry_mine">
+            <p class="ChatLog__message">
+              Dad. Coca-Cola ?!?!
+              <time class="ChatLog__timestamp">2 minutes ago</time>
+            </p>
+          </li>
+           <li class="ChatLog__entry">
+            <img class="ChatLog__avatar" src="img/user_icon.png" />
+            <p class="ChatLog__message">
+              Oh... that's what you mean...
+              <time class="ChatLog__timestamp">3 minutes ago</time>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="step-non-verbal-com" class="step black" data-slide-number="11"
+  data-x="2400" data-y="700" data-z="0">
+  <div class="notes">Et cette situation est compreensible lorsque l'on sait que 2/3 de l'ensemble des communications se fait de manière non verbale, ça peut passer par des expressions du visage ou le language du corps par exemple.</div>
+  <video autoplay loop muted class="bgvid">
+    <source src="img/Charlie_Chaplin.mp4" type="video/mp4">
+  </video>
+  <h2 class="center-text">2/3 de l'ensemble des communications</h2>
+</div>
+
+<div id="step-how-to-improve" class="step black" data-slide-number="12"
+  data-x="3200" data-y="700" data-z="0">
+  <div class="notes">La problematique est donc de trouver un moyen de les rendre plus humaines et naturelles</div>
+  <p class="center-text">Comment les rendre humaines ?</p>
+</div>
+
+<div id="step-with-emoticon" class="step white" data-slide-number="13"
+  data-x="3200" data-y="700" data-z="0">
+  <div class="grid">
+    <div class="grid-item transition"><img src="img/emoticons/love_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/money_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/mustache_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/punk_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/security_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/sleepi_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/sunglass_2_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/surprise_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/tongue_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/wink_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/angel_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/angry_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/cap_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/clown_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/confused_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/cool_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/crying_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/cyber_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/depression_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/dislike_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/eyeglass_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/gay_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/geek_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/happy_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/humor_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/kiss_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/laughing_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/like_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/love_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/money_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/mustache_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/punk_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/security_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/sleepi_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/smarth_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/smile_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/star_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/sunglass_2_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/sunglass_3_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/sunglass_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/surprise_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/tongue_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/wink_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/angel_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/angry_512px.png"></div>
+    <div class="grid-item transition hidden"><img src="img/emoticons/cap_512px.png"></div>
+  </div>
+  <div class="notes">Cela peut passer par l'utilisation d'emoticons</div>
+</div>
+
+<div id="step-with-stickers" class="step white" data-slide-number="14"
+  data-x="4000" data-y="700" data-z="0">
+  <div class="sticker"><img src="img/stickers/10072.png"></div>
+  <div class="sticker"><img src="img/stickers/10074.png"></div>
+  <div class="sticker"><img src="img/stickers/10077.png"></div>
+  <div class="sticker"><img src="img/stickers/9308.png"></div>
+  <div class="sticker"><img src="img/stickers/9313.png"></div>
+  <div class="sticker"><img src="img/stickers/9314.png"></div>
+  <div class="notes">Ou bien de stickers qui vont offir une plus grand palette d'emotions et de situations</div>
+</div>
+
+<div id="step-with-gifs" class="step white" data-slide-number="15"
+  data-x="4800" data-y="700" data-z="0">
+  <div class="gif"><img src="img/gifs/gif_3D_renard.gif"></div>
+  <div class="gif"><img src="img/gifs/gif_embarassed.gif"></div>
+  <div class="gif"><img src="img/gifs/gif_face_palm.gif"></div>
+  <div class="gif"><img src="img/gifs/gif_oups.gif"></div>
+  <div class="gif"><img src="img/gifs/gif_yes.gif"></div>
+  <div class="notes">Ou grace à des gif auquel on s'identifie relativemnt rapidement</div>
+</div>
+
+<div id="step-wittiz" class="step purple" data-slide-number="16"
+  data-x="4800" data-y="700" data-z="1000">
+  <div class="notes">Et c'est sur ce dernier point que la société wittiz est née</div>
+  <p class="center-block wittiz_logo"><img src="img/wittiz_icon.png"/> WittiZ</p>
+</div>
+
+<div id="step-wittiz-numbers" class="step purple" data-slide-number="17"
+  data-x="4800" data-y="1400" data-z="1000">
+  <div class="notes">Wittiz est créée en 2013, et est un plateforme qui heberge un collection de courts extraits videos qui peuvent etre partagés par les utilisateurs. L'avantage etant que contrairement au gif ou les droits d'exploitation sont flous, les videos de wittiz sont exploitées legalement avec license. Leur business model repose sur le contenu sponsorisé.</div>
+  <div class="row">
+    <div id="wittiz-carousel-container" class="deep-shadow col-xs-6">
+      <!-- Inject via JS -->
+      <div class="deep-shadow iphoneFrame">
+        <img class="center-block" src="img/screenLibonCallOut.png">
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <ul>
+        <li class="prezItem hidden">Créée en 2013</li>
+        <li class="prezItem hidden">Collection de courts extraits vidéos</li>
+        <li class="prezItem hidden">License sur les extraits vidéos</li>
+        <li class="prezItem hidden">Contenu sponsorisé</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="step-internship-mission" class="step white" data-slide-number="18"
+  data-x="4800" data-y="1400" data-z="0">
+  <div class="notes">Ainsi ma mission durant ce stage etait d'utiliser l'API de wittiz, d'en faire un sdk et de l'integrer à Libon afin de faciliter le partage des videos directement au sein de Libon.</div>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-1 libon-app">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <img class="center-block" src="img/libon_icon.png">
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 col-xs-offset-2 wittiz-app">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <img class="center-block" src="img/wittiz_icon.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="step-demo" class="step black" data-slide-number="19"
+  data-x="4800" data-y="1400" data-z="0">
+  <p class="center-text">Démo</p>
+</div>
+
+
+<div id="step-two-problematic" class="step white" data-slide-number="20"
+  data-x="4800" data-y="1400" data-z="0">
+  <div class="notes">Après cette petit demonstration, je maintenant vous presenter deux problématiques rencontrés durant mon stage. La premiere problematique sera l'occasion de detailler le fonctionement de la composition des messages dans libon. La seconde permettra de vous exposer comment les videos sont envoyés au destinataire.</div>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3"><img class="center-block" src="img/question-mark.jpg"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6"><p class="center-text">Intégration naturelle à la composition des messages</p></div>
+    <div class="col-xs-6"><p class="center-text">Algorithme d'envoi des vidéos</p></div>
+  </div>
+</div>
+
+
+<div id="step-problematic-one" class="step blue" data-slide-number="21"
+  data-x="4800" data-y="1400" data-z="0">
+  <div class="notes">Nous allons commencer par le fonctionnement de la composition des messages. </div>
+  <p class="center-text">Intégration naturelle à la composition des messages</p>
+</div>
+
+<div id="step-preview-text-input" class="step blue" data-slide-number="22"
+  data-x="4800" data-y="700" data-z="0">
+  <div class="notes">Lorsque l'on compose un message, avec des emoticons ou images on souhaite que ces images soient intégrés directement au sein du texte afin de pouvoir raconter en quelque sorte une histoire. </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2"><img class="center-block" src="img/saisie_sample.gif"></div>
+  </div>
+</div>
+
+
+<div id="step-text-input" class="step blue" data-slide-number="23"
+  data-x="4800" data-y="0" data-z="0">
+  <div class="notes">Ce qu'il faut savoir avec Libon, c'est que lorsque l'on ajoute un emoticon ou une image, en realité, ce n'est pas une image qui est inséré mais du texte. Et ce texte est parsé en temps reel afin de generer les images correspondantes.</div>
+  <div class="row">
+    <div class="col-xs-12 gif-image"></div>
+    <div class="col-xs-8 col-xs-offset-2"><pre><code class="language-markup message"></code></pre></div>
+  </div>
+</div>
+
+
+<div id="step-raw-text-input" class="step blue" data-slide-number="24"
+  data-x="4800" data-y="-700" data-z="0">
+  <div class="notes">Dans le cas de ce message, c'est donc le code : ) qui correspond à un emoticon et la balise &lt;wittiz-addition&gt; permet d'indiquer la presence d'une video wittiz. Avec notammen l'url vers l'image que l'on souhaite afficher et l'url de la video que l'on souhaite partager.</div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2"><pre><code class="language-markup message">Hello, :), toujours malade ?
+&lt;wittiz-addition&gt;{thumbnailUrl::http://p.com/img.jpg videoUrl::http://p.com/vid.mp4 publicUrl::http://p.com/public label::'My Label'}
+&lt;wittiz-addition&gt;</code></pre></div>
+  </div>
+</div>
+
+
+<div id="step-offline-ressources" class="step blue" data-slide-number="25"
+  data-x="4800" data-y="-1400" data-z="0">
+  <div class="notes">Ce genre de chose fonctionne bien lorsque les ressources sont disponibles localement et en nombre fini, c'est la cas pour les emoticons.</div>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign good">
+        <img class="center-block" src="img/good_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1">Ressources disponibles en local</div>
+  </div>
+</div>
+
+
+<div id="step-online-ressources" class="step blue" data-slide-number="26"
+  data-x="4800" data-y="-2100" data-z="0">
+  <div class="notes">Cependant dans le cas ou les ressources sont en ligne cela pose problème car on introduit la notion d'asynchronicité pour effectuer la requete web.</div>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign bad">
+        <img class="center-block" src="img/bad_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1">Ressources en ligne</div>
+  </div>
+</div>
+
+
+<div id="step-async-rtc-parsing-issue" class="step blue" data-slide-number="27"
+  data-x="4800" data-y="-2800" data-z="0">
+  <div class="notes">Du coups il faut arriver à gerer l'asynchronicité des requetes et le parsing temps reel du texte afin de ne pas bloquer l'interface utilisateur.</div>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-1">
+      <p class="center-text question">?</p>
+      <div class="center-block triangle"></div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1">Gérer l'asynchronicité des requêtes et le parsing en temps réel</div>
+  </div>
+</div>
+
+
+<div id="step-futur-mecanism" class="step blue" data-slide-number="28"
+  data-x="4800" data-y="-3500" data-z="0">
+  <div class="notes">Pour se faire on va utiliser un type introduit par les equipes qui ont developpé Libon, le type Futur. Ce dernier permet de generer un objet vide du type spécifié le temps que le veritable objet soit disponible et puisse etre remplacé. Ce mecasime repose principalement sur les signaux, et on va regarder un peu plus en detail comment cela se passe. </div>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <pre><code class="language-java">Futur &lt;UIImage*&gt;</code></pre>
+    </div>
+  </div>
+  <div class="center-text">Basé sur les signaux</div>
+</div>
+
+
+<div id="step-futur-flowchart" class="step blue" data-slide-number="29"
+  data-x="4800" data-y="-4200" data-z="0">
+  <div class="notes">Dans un premier temps on declare un object "aperçu" ici thumbnail, qui sera utilisé pour stocker notre apercu, il s'agit d'un futur. <br> On appel ensuite la fonction getThumbnail qui va se charger de recuperer l'image via une requete asynchrone. Que l'image ait été telechargé ou non, l'execution continue et on utilise donc l'atribut isDone afin de savoir si l'image definitive à été telechargé. Oui alors l'image etait dans le cache on peut l'afficher directement. <br>Sinon on bind au signal thumbnailDone la fonction thumbdownloaded qui sera appelé lorsque que ce signal sera reçu. Lorsque l'image a été teléchargé, dans le callback on va executer un sendSignal afin que l'image soit remplacé dans la vue.</div>
+  <img class="center-block" src="img/graph.png">
+</div>
+
+
+<div id="step-low-speed-preview" class="step blue" data-slide-number="30"
+  data-x="4800" data-y="-4900" data-z="0">
+  <div class="notes">Pour l'utilisateur cela est presque invisible, cependant comme on le voit au ralenti, pendant environ une demi seconde, un cadre blanc va etre inséré dans le texte puis par la suite remplacé par l'image definitive. Ce toutefois quasiement invisible pour l'utilisateur.</div>
+  <img class="center-block" src="img/low_speed_async.gif">
+</div>
+
+
+<div id="step-problematic-two" class="step yellow" data-slide-number="31"
+  data-x="5600" data-y="-4900" data-z="0">
+  <div class="notes">On va maintenant passer à l'algorithme d'envoi des vidéos.</div>
+  <p class="center-text">Algorithme d'envoi des vidéos</p>
+</div>
+
+
+<div id="step-things-to-send" class="step yellow" data-slide-number="32"
+  data-x="5600" data-y="-4200" data-z="0"  data-scale="1">
+  <div class="notes">On l'a vu précédement, on a notre texte avec les images mais ce que l'on souhaite lors de l'envoi c'est que le texte soit dans un bulle et que dans une seconde bulle, la video soit lisible directement depuis le flux des messages<br>Ainsi on va utiliser un MessageEvent pour le texte et un autre Event pour la video. Avant d'aller plus loin, il faut que je vous explique ce qu'est un event dans Libon.</div>
+  <div class="row">
+    <div class="col-xs-5"><pre class="left"><code>Hello, <img class="emoticon" src="img/big_0000_smile.png">, toujours malade ?<br><img src="img/avatar_wittiz.jpg"></code></pre>
+    </div>
+    <div class="col-xs-2 prezItem hidden">
+      <div class="center-block arrow">&#8594;</div>
+    </div>
+    <div class="col-xs-5 bg-chat prezItem hidden">
+      <div class="row">
+        <div class="col-xs-12 ChatLog__entry ChatLog__entry_mine">
+          <p class="ChatLog__message">Hello, <img class="emoticon" src="img/big_0000_smile.png">, toujours malade ?</p>
+          <p class="eventType prezItem hidden" style="left:-10px;">MessageEvent</p>
+        </div>
+        <div class="col-xs-12" style="height:60px;"></div>
+        <div class="col-xs-12 ChatLog__entry ChatLog__entry_mine videoPlayer">
+          <p class="ChatLog__message"><img src="img/avatar_wittiz_player.jpg"></p>
+          <p class="eventType prezItem hidden">????Event</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="step-event-mecanism" class="step light-yellow" data-slide-number="33"
+  data-x="5840" data-y="-4200" data-z="-2000" data-rotate="-90">
+  <div class="notes">Un event, comme son nom l'indique est un evenement</div>
+  <h2 class="center-text"> Event = Événement</h2>
+</div>
+
+
+<div id="step-event-list" class="step light-yellow" data-slide-number="34"
+  data-x="5840" data-y="-4200" data-z="-2000" data-rotate="-90">
+  <p class="random-align">MessageEvent</p>
+  <p class="random-align">CallEvent</p>
+  <p class="random-align">NotificationEvent</p>
+  <p class="random-align">LocationEvent</p>
+  <p class="random-align">FileTransferEvent</p>
+  <p class="random-align">ConferenceEvent</p>
+  <div class="notes">Ils regissent tout ce qui se passe dans l'application, lors d'un appel, de la reception d'un message, une conference ou une notification.</div>
+</div>
+
+
+<div id="step-event-list-highlight" class="step light-yellow" data-slide-number="35"
+  data-x="5840" data-y="-4200" data-z="-2000" data-rotate="-90">
+  <p class="random-align highlighted">MessageEvent</p>
+  <p class="random-align">CallEvent</p>
+  <p class="random-align">NotificationEvent</p>
+  <p class="random-align">LocationEvent</p>
+  <p class="random-align highlighted">FileTransferEvent</p>
+  <p class="random-align">ConferenceEvent</p>
+  <div class="notes">Pour la suite de la presentation seuls deux event nous interesse et je vais vous decrire rapidement leur fonctionnement</div>
+</div>
+
+
+<div id="step-event-message" class="step light-yellow" data-slide-number="36"
+  data-x="5840" data-y="-4200" data-z="-2000" data-rotate="-90">
+  <p>MessageEvent</p>
+  <img class="center-block" src="img/messageEvent.png">
+</div>
+
+
+<div id="step-event-filetransfer" class="step light-yellow" data-slide-number="37"
+  data-x="5840" data-y="-4200" data-z="-2000" data-rotate="-90">
+  <p>FileTransferEvent</p>
+  <img class="center-block" src="img/fileTransferEvent.png">
+</div>
+
+<div id="step-things-to-send-2" class="step yellow" data-slide-number="38"
+  data-x="5600" data-y="-4200" data-z="0"  data-scale="1">
+  <div class="notes">Après avoir détaillé ces deux event, se pose la question de quel event choisir pour l'envoi de la video.</div>
+  <div class="row">
+    <div class="col-xs-5"><pre class="left"><code>Hello, <img class="emoticon" src="img/big_0000_smile.png">, toujours malade ?<br><img src="img/avatar_wittiz.jpg"></code></pre>
+    </div>
+    <div class="col-xs-2">
+      <div class="center-block arrow">&#8594;</div>
+    </div>
+    <div class="col-xs-5 bg-chat">
+      <div class="row">
+        <div class="col-xs-12 ChatLog__entry ChatLog__entry_mine">
+          <p class="ChatLog__message">Hello, <img class="emoticon" src="img/big_0000_smile.png">, toujours malade ?</p>
+          <p class="eventType" style="left:-10px;">MessageEvent</p>
+        </div>
+        <div class="col-xs-12" style="height:60px;"></div>
+        <div class="col-xs-12 ChatLog__entry ChatLog__entry_mine videoPlayer">
+          <p class="ChatLog__message"><img src="img/avatar_wittiz_player.jpg"></p>
+          <p class="eventType">????Event</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="step-3-solutions" class="step yellow" data-slide-number="39"
+  data-x="5600" data-y="-3500" data-z="0"  data-scale="1">
+  <div class="notes">3 solutions on été envisagés, mais une seule à été retenue</div>
+  <h2 class="center-text">3 solutions étudiées</h2>
+</div>
+
+<div id="step-use-filetransfer-event" class="step yellow" data-slide-number="40"
+  data-x="5600" data-y="-2800" data-z="0"  data-scale="1">
+  <h2 class="center-text">Utiliser le FileTransferEvent</h2>
+  <div class="row prezItem hidden" style="margin-top:40px;">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign good">
+        <img class="center-block" src="img/good_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Solution "logique" et peu couteuse</p></div>
+  </div>
+  <div class="row prezItem hidden" style="margin-top:40px;">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign bad">
+        <img class="center-block" src="img/bad_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Changements nécessaires au niveau du Backend</p></div>
+  </div>
+</div>
+
+<div id="step-use-message-event" class="step yellow" data-slide-number="41"
+  data-x="5600" data-y="-2100" data-z="0"  data-scale="1">
+  <h2 class="center-text">Utiliser le MessageEvent</h2>
+  <div class="row prezItem hidden" style="margin-top:40px;">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign good">
+        <img class="center-block" src="img/good_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Seules les "EventView" sont à modifier</p></div>
+  </div>
+  <div class="row prezItem hidden" style="margin-top:40px;">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign bad">
+        <img class="center-block" src="img/bad_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Maintenabilité limité à cause d'une architecture pauvre</p></div>
+  </div>
+</div>
+
+<div id="step-create-remotevideo-event" class="step yellow" data-slide-number="42"
+  data-x="5600" data-y="-1400" data-z="0"  data-scale="1">
+  <h2 class="center-text">Implementer un RemoteVideoEvent</h2>
+  <div class="row prezItem hidden" style="margin-top:40px;">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign good">
+        <img class="center-block" src="img/good_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Séparation et réusabilité du code.</p></div>
+  </div>
+  <div class="row prezItem hidden" style="margin-top:40px;">
+    <div class="col-xs-2 col-xs-offset-1">
+      <div class="center-block sign bad">
+        <img class="center-block" src="img/bad_clipart.png">
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Beaucoup de code à modifier</p></div>
+  </div>
+</div>
+
+<div id="step-conclusion" class="step black" data-slide-number="43"
+  data-x="6400" data-y="-1400" data-z="0"  data-scale="1">
+  <div class="notes">En conclusion, j'ai réalisé durant ce stage une application de demonstration permettant de prouver la faisabilité d'une integration de wittiz dans libon, ce qui s'est traduit par son intégration dans l'application finale. Quelques points pourrait etre ameliorés notamment une interface plus ergonomique pour ouvrir le clavier wittiz. Ou encore la gestion de l'authentification pour acceder à des fonctionnalités plus avancé de l'api Wittiz comme la possibilité d'enregister ses videos favorites.<br>Merci de votre attention, avez vous des questions.</div>
+  <h2 class="center-text">Conclusion</h2>
+</div>
+
+</div>
+<div class="slide-number">1</div>
+
+
+<script src="lib/js/impress.js"></script>
+</body>
+</html>

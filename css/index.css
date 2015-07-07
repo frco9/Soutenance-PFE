@@ -1,0 +1,505 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../lib/fonts/HelveticaNeue.ttf);
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 200;
+  src: url(../lib/fonts/HelveticaNeue-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: italic;
+  font-weight: 400;
+  src: url(../lib/fonts/HelveticaNeue-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../lib/fonts/HelveticaNeue-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Patua One';
+  src: url(../lib/fonts/PatuaOne-Regular.ttf);
+}
+
+body, h1, p {
+  color: #FFF;
+  font-weight: 200;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+body, p {
+  font-family: 'Helvetica Neue';
+  font-weight: 400;
+}
+
+body {
+  transition: 0.5s
+}
+
+div, p, canvas, i, em {
+  transition: 1s
+}
+
+h1 {
+  font-family: 'Helvetica Neue';
+  font-size: 70px;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'Helvetica Neue';
+  font-size: 60px;
+}
+
+h1.map-title {
+  margin-top: -200px;
+  margin-bottom: 200px;
+}
+
+img {
+  width: 70%;
+}
+
+ul {
+  font-size: 30px;
+  width: 500px;
+  list-style-type: none;
+}
+
+ul li {
+  margin-top: 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.white, .white h1 {
+  color: black;
+  text-shadow: 0px 0px 15px #FFF;
+}
+
+.white p {
+  color: black;
+  text-shadow: 0px 0px 0px #FFF;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.black, .black h1, .black p {
+  color: #FF6500;
+  text-shadow: none;
+}
+
+.gray-bg {
+  background: gray;
+}
+
+.red-bg {
+  background: rgb(255, 68, 68);
+}
+
+.orange-bg {
+  background-color: #FF6500;
+}
+
+.green-bg {
+  background: #91ce44;
+}
+
+.purple-bg {
+  background: #b53083;
+}
+
+.blue-bg {
+  background: rgb(51, 181, 229);
+}
+
+.yellow-bg {
+  background: rgb(231, 191, 34);
+}
+
+.light-yellow-bg {
+  background: #F0D878;
+}
+
+.orange-france-bg {
+  position: absolute;
+  width: 240%;
+  top: -63%;
+  left: -15%;
+  z-index: -1;
+}
+
+.orange-europe-bg {
+  position: absolute;
+  width: 240%;
+  top: -40%;
+  left: -30%;
+  z-index: -1;
+}
+
+.orange-world-bg {
+  position: absolute;
+  width: 242%;
+  top: -98%;
+  left: -22%;
+  z-index: -1;
+}
+
+.step {
+  width: 900px;
+  padding: 40px;
+  font-size: 48px;
+}
+
+.step:not(.active) {
+  opacity: 0;
+}
+
+.legend-list span{
+    position: relative;
+    display: block;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    transition: all .3s ease-out;   
+    width: 40px;
+    height: 30px;
+    top: 30px;
+    left: -45px;
+}
+
+ 
+.legend-list span:before{
+    position: absolute; 
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: #fa8072;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.legend-list span:after{
+    position: absolute; 
+    content: '';
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;               
+}
+
+
+ul.ChatLog {
+  list-style: none;
+  width: 100%;
+  padding-left: 0px;
+}
+
+.ChatLog {
+  max-width: 20em;
+  margin: 0 auto;
+}
+.ChatLog .ChatLog__entry {
+  margin: .5em;
+  font-size: 16px;
+}
+
+.ChatLog__entry {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  max-width: 100%;
+}
+
+.ChatLog__entry.ChatLog__entry_mine {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;  
+}
+
+.ChatLog__avatar {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  z-index: 1;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  
+}
+
+.ChatLog__entry.ChatLog__entry_mine 
+.ChatLog__avatar {
+  display: none;
+}
+
+.ChatLog__entry .ChatLog__message {
+  position: relative;
+  margin: 0 12px;
+}
+
+.ChatLog__entry .ChatLog__message::before {
+  position: absolute;
+  right: auto;
+  bottom: .6em;
+  left: -12px;
+  height: 0;
+  content: '';
+  border: 6px solid transparent;
+  border-right-color: #ddd;
+  z-index: 2;
+}
+
+.ChatLog__entry.ChatLog__entry_mine .ChatLog__message::before {
+  right: -12px;
+  bottom: .6em;
+  left: auto;
+  border: 6px solid transparent;
+  border-left-color: #08f;
+}
+
+.ChatLog__message {
+  background-color: #ddd;
+  padding: .5em;
+  border-radius: 4px;
+  font-weight: lighter;
+  max-width: 70%;
+}
+
+.ChatLog__entry.ChatLog__entry_mine .ChatLog__message {
+  border-top: 1px solid #07f;
+  border-bottom: 1px solid #07f;
+  background-color: #08f;
+  color: #fff;
+}
+
+.ChatLog__message .ChatLog__timestamp {
+  display: none;
+}
+
+
+.grid {
+  width: 3000px;
+  margin-left: -63%;
+  transform: scale(0.6);
+}
+
+.grid::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.grid-item img {
+  width: 94%;
+}
+
+.grid-item {
+  box-sizing:border-box;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  float: left;
+  margin: 20px;
+  margin-top: -5px;
+  margin-left: 20px;
+}
+
+.grid-item-buffer {
+  opacity: 0;
+}
+
+.grid-item:nth-child(1),
+.grid-item:nth-child(2),
+.grid-item:nth-child(3),
+.grid-item:nth-child(4),
+.grid-item:nth-child(5),
+.grid-item:nth-child(6) {
+   margin-top: 0px;
+}
+
+.grid-item:nth-child(13n+8) {
+  margin-left: -90px;
+  clear:left;
+}
+
+.grid-item:nth-child(26n+8) {
+  margin-left: 30px;
+  clear:left;
+}
+
+.grid-item:nth-child(40n+1) {
+  margin-left: 140px;
+  clear:left;
+}
+
+.grid-item:nth-child(23),
+.grid-item:nth-child(25),
+.grid-item:nth-child(17),
+.grid-item:nth-child(18),
+.grid-item:nth-child(30),
+.grid-item:nth-child(31) {
+  width: 170px;
+  height: 170px;
+}
+
+.grid-item:nth-child(22),
+.grid-item:nth-child(26),
+.grid-item:nth-child(16),
+.grid-item:nth-child(19),
+.grid-item:nth-child(29),
+.grid-item:nth-child(10),
+.grid-item:nth-child(11),
+.grid-item:nth-child(12),
+.grid-item:nth-child(36),
+.grid-item:nth-child(37),
+.grid-item:nth-child(38),
+.grid-item:nth-child(32) {
+  width: 140px;
+  height: 140px;
+}
+
+.grid-item:nth-child(2),
+.grid-item:nth-child(3),
+.grid-item:nth-child(4),
+.grid-item:nth-child(5),
+.grid-item:nth-child(42),
+.grid-item:nth-child(43),
+.grid-item:nth-child(44),
+.grid-item:nth-child(45),
+.grid-item:nth-child(21),
+.grid-item:nth-child(27),
+.grid-item:nth-child(15),
+.grid-item:nth-child(20),
+.grid-item:nth-child(9),
+.grid-item:nth-child(13),
+.grid-item:nth-child(35),
+.grid-item:nth-child(39),
+.grid-item:nth-child(28),
+.grid-item:nth-child(33) {
+  width: 110px;
+  height: 110px;
+}
+
+.grid-item:nth-child(41),
+.grid-item:nth-child(46),
+.grid-item:nth-child(1),
+.grid-item:nth-child(6),
+.grid-item:nth-child(8),
+.grid-item:nth-child(14),
+.grid-item:nth-child(40),
+.grid-item:nth-child(34) {
+  width: 80px;
+  height: 80px;
+  opacity: 0;
+}
+
+.grid-item:nth-child(7) {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+}
+
+.grid-item:nth-child(13n+15) {
+    clear:left;
+}
+
+/**
+ * How to make 3-corner-rounded triangle in CSS (SO)
+ * http://stackoverflow.com/q/14446677/1397351
+ */
+.triangle {
+  position: relative;
+  background-color: orange;
+  text-align: left;
+}
+.triangle:before,
+.triangle:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+  width:  80px;
+  height: 80px;
+  border-top-right-radius: 30%;
+}
+
+.triangle {
+  transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.prezItem.hidden {
+  opacity: 0;
+}
+
+.prezItem.visible {
+  opacity: 1;
+}
+
+
+.step .notes {
+  display: none;
+}
