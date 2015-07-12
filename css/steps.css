@@ -50,6 +50,10 @@
   color: black;
 }
 
+#step-chart-imGrowth li {
+  margin-top: 0px;
+  font-size: 24px;
+}
 
 #step-multiple-actors .app-icon {
   margin-top: 30px;
@@ -91,6 +95,7 @@
 
 #step-non-verbal-com h1, #step-non-verbal-com p, #step-non-verbal-com h2 {
   color: #FFF;
+  text-shadow: 1px 1px 10px #000;
 }
 
 #step-libon-numbers ul {
@@ -489,8 +494,14 @@
 }
 
 
+#step-conclusion-details ul {
+  width: inherit;
+}
 
 
+#step-conclusion-details ul li {
+  color: #FFF;
+}
 
 
 

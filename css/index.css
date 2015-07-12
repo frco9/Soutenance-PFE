@@ -503,3 +503,11 @@ ul.ChatLog {
 .step .notes {
   display: none;
 }
+
+.slide-number.hidden {
+  opacity: 0;
+}
+
+.slide-number.visible {
+  opacity: 1;
+}

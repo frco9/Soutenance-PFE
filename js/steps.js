@@ -9,7 +9,12 @@ slideNumber: function () {
   $('#impress').on('impress:stepactivate', function (event) {
     var step = event.target;
     var number = step.dataset["slideNumber"];
-    $('.slide-number').text(number);
+    if (typeof number == 'undefined') {
+      $('.slide-number').addClass("hidden");
+    } else {
+      $('.slide-number').removeClass("hidden");
+      $('.slide-number').text(number);
+    }
   });
 },
 
