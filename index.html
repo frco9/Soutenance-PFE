@@ -186,10 +186,10 @@
 <div id="step-dehumanized-conversation" class="step white" data-slide-number="10"
   data-x="2400" data-y="700" data-z="0">
   <div class="notes">En effet les communication en ligne sont relativement deshumanisées et pas forcement naturelles, ainsi sans le contexte, il est facile de mal interpreter le sens de certains mots et donc ne pas se comprendre. De plus sans metrise du language propre à ces comunications communiquer peut etre compliqué, c'est le cas de l'acronyme LOL.</div>
-  <div class="row"><p class="center-text">Les communications en ligne ne sont pas naturelles</p></div>
   <div class="row">
-    <div class="col-xs-6">
-      <div class="chat-bg">
+    <div class="col-xs-6 left-text">
+      Les communications en ligne ne sont pas naturelles
+      <!-- <div class="chat-bg">
         <ul class="ChatLog">
           <li class="ChatLog__entry">
             <img class="ChatLog__avatar" src="img/user_icon.png" />
@@ -231,7 +231,7 @@
             </p>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
     <div class="col-xs-6">
       <div class="chat-bg">
@@ -401,55 +401,56 @@
   data-x="4800" data-y="1400" data-z="0">
   <div class="notes">Ainsi ma mission durant ce stage etait d'utiliser l'API de wittiz, d'en faire un sdk et de l'integrer à Libon afin de faciliter le partage des videos directement au sein de Libon.</div>
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-1 libon-app">
+    <div id="libon-app-bubble" class="col-xs-4 col-xs-offset-1 libon-app-prelude">
       <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
           <img class="center-block" src="img/libon_icon.png">
         </div>
       </div>
     </div>
-    <div class="col-xs-4 col-xs-offset-2 wittiz-app">
-    <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
+    <div id="wittiz-app-bubble" class="col-xs-12 wittiz-app-prelude">
+      <div class="row">
+        <div class="col-xs-10 json-code">
+            <pre><code class="language-json message">HTTP/1.1 200 OK 
+  { 
+    "success":true,
+    "data":{
+       "scenes":[{
+             "id":"3112",
+             "title":"Un conseil peu banal",
+             "is_favorite":false,
+             "favorites_count":120,
+             "image_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/3cf749.jpg",
+             "from":{
+                "id":"485",
+                "title":"Le Loup de Wall Street",
+                "type":"movie",
+                "has_purchasable_products":true
+             },
+             "video_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/31094b6b81b5.mp4",
+             "transcript":null,
+             "url":"http:\/\/wittizapp.com\/scene\/4153"
+          },{
+             "id":"3115",
+             "title":"D\u00e9pense excessive ",
+             "is_favorite":false,
+             "favorites_count":56,
+             "image_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/4731b4.jpg",
+             "from":{
+                "id":"485",
+                "title":"Le Loup de Wall Street",
+                "type":"movie",
+                "has_purchasable_products":true
+             },
+             "video_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/3109ebb1d374.mp4",
+             "transcript":null,
+             "url":"http:\/\/wittizapp.com\/scene\/4156"
+      }]
+    }
+  }</code></pre>
+        </div>
+        <div class="col-xs-2 wittiz-icon">
           <img class="center-block" src="img/wittiz_icon.png">
-<!--           <pre><code class="language-json message">HTTP/1.1 200 OK 
-{
-  "success":true,
-  "data":{
-     "scenes":[{
-           "id":"3112",
-           "title":"Un conseil peu banal",
-           "is_favorite":false,
-           "favorites_count":120,
-           "image_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/3cf749.jpg",
-           "from":{
-              "id":"485",
-              "title":"Le Loup de Wall Street",
-              "type":"movie",
-              "has_purchasable_products":true
-           },
-           "video_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/31094b6b81b5.mp4",
-           "transcript":null,
-           "url":"http:\/\/wittizapp.com\/scene\/4153"
-        },{
-           "id":"3115",
-           "title":"D\u00e9pense excessive ",
-           "is_favorite":false,
-           "favorites_count":56,
-           "image_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/4731b4.jpg",
-           "from":{
-              "id":"485",
-              "title":"Le Loup de Wall Street",
-              "type":"movie",
-              "has_purchasable_products":true
-           },
-           "video_url":"http:\/\/admin.wittizapp.com\/uploads\/scenes\/3109ebb1d374.mp4",
-           "transcript":null,
-           "url":"http:\/\/wittizapp.com\/scene\/4156"
-    }]
-  }
-}
-          </code></pre> -->
         </div>
       </div>
     </div>
@@ -737,7 +738,7 @@
         <img class="center-block" src="img/good_clipart.png">
       </div>
     </div>
-    <div class="col-xs-8 col-xs-offset-1"><p>Séparation et réusabilité du code.</p></div>
+    <div class="col-xs-8 col-xs-offset-1"><p>Séparation et réutilisabilité du code</p></div>
   </div>
   <div class="row prezItem hidden" style="margin-top:40px;">
     <div class="col-xs-2 col-xs-offset-1">
@@ -767,13 +768,30 @@
   <br>Je tiens à remercier tout l'équipe d'OLPS Soft pour m'avoir acueilli durant ces 6 mois de stage, et tout particulièrement Fabien Crapiz, mon maitre de stage pour m'avoir encadré et conseillé. 
   <br>Merci de votre attention, avez vous des questions.</div>
   <h2 class="center-text">Conclusion</h2>
-    <ul>
-    <li class="prezItem hidden"><span style="color:#A1FD7A;">++</span>&nbsp; Projet terminé</li>
-    <li class="prezItem hidden"><span style="color:#A1FD7A;">++</span>&nbsp; Consolidation de mes connaissances en dev iOS</li>
-    <li class="prezItem hidden"><span style="color:#A1FD7A;">+</span>&nbsp;&nbsp;&nbsp; Decouverte de nouveaux outils, mercurial/ JIRA</li>
-    <li class="prezItem hidden"><span style="color:#F95151;">-</span>&nbsp;&nbsp;&nbsp; Synchronisation et communication difficile entre les &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;différentes entités impliquées</li>
-    <li class="prezItem hidden"><span style="color:#F95151;">-</span>&nbsp;&nbsp;&nbsp; Améliorations possibles (fonctions liées à l'authentification)</li>
-  </ul>
+  <div class="row div-list">
+    <div class="col-xs-12">
+      <div class="row prezItem hidden">
+        <div class="col-xs-2 center-text li-bullet good">++</div>
+        <div class="col-xs-10">Projet terminé</div>
+      </div>
+      <div class="row prezItem hidden">
+        <div class="col-xs-2 center-text li-bullet good">++</div>
+        <div class="col-xs-10">Consolidation de mes connaissances en dev iOS</div>
+      </div>
+      <div class="row prezItem hidden">
+        <div class="col-xs-2 center-text li-bullet ok">+</div>
+        <div class="col-xs-10">Decouverte de nouveaux outils: Mercurial / JIRA</div>
+      </div>
+      <div class="row prezItem hidden">
+        <div class="col-xs-2 center-text li-bullet bad">-</div>
+        <div class="col-xs-10">Synchronisation et communication difficile entre les différentes entités impliquées</div>
+      </div>
+      <div class="row prezItem hidden">
+        <div class="col-xs-2 center-text li-bullet bad">-</div>
+        <div class="col-xs-10">Améliorations possibles (fonctions liées à l'authentification)</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </div>
