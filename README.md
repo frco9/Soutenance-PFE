@@ -13,7 +13,7 @@ Pour le contrôle sur mobile via [remote-impress](https://github.com/edjafarov/r
 Credit
 ------
 
-Cette presentation a été réalisé en utilisant la librairie [impress.js](https://github.com/impress/impress.js) ainsi que deux modules [impress-console](https://github.com/regebro/impress-console) afin d'avoir les notes de présentation dans une autre fenêtre, et [remote-impress](https://github.com/edjafarov/remote-impress) pour le controle des slide sur telephone.
+Cette presentation a été réalisé en utilisant la librairie [impress.js](https://github.com/impress/impress.js) ainsi que deux modules [impress-console](https://github.com/regebro/impress-console) afin d'avoir les notes de présentation dans une autre fenêtre, et [remote-impress](https://github.com/edjafarov/remote-impress) pour le controle des slides sur telephone.
 
 D'un point de vu technique, cette présentation utilise une partie des styles CSS et du code JS de la présentation [Triangulation](https://github.com/mkacz91/Triangulations) par Marcin Kaczmarek.
 
